@@ -1,0 +1,6 @@
+C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\pch.cpp;C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\x64\Release\pch.obj
+C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\test_file_detector.cpp;C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\x64\Release\test_file_detector.obj
+C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\test_malware_scannercpp.cpp;C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\x64\Release\test_malware_scannercpp.obj
+C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\test_memory_scanner.cpp;C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\x64\Release\test_memory_scanner.obj
+C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\test_process_detector.cpp;C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\x64\Release\test_process_detector.obj
+C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\test_registry_detector.cpp;C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\x64\Release\test_registry_detector.obj
