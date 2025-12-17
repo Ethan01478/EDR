@@ -114,7 +114,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="test_file_detector.cpp" />
-    <ClCompile Include="test_malware_scannercpp.cpp" />
+    <ClCompile Include="test_malware_scanner.cpp" />
     <ClCompile Include="test_memory_scanner.cpp" />
     <ClCompile Include="test_process_detector.cpp" />
     <ClCompile Include="test_registry_detector.cpp" />

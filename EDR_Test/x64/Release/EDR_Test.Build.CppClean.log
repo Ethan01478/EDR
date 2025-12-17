@@ -4,7 +4,7 @@ c:\users\ethan\source\repos\edr-development-via-tdd\edr_test\x64\release\pch.obj
 c:\users\ethan\source\repos\edr-development-via-tdd\edr_test\x64\release\test_registry_detector.obj
 c:\users\ethan\source\repos\edr-development-via-tdd\edr_test\x64\release\test_process_detector.obj
 c:\users\ethan\source\repos\edr-development-via-tdd\edr_test\x64\release\test_memory_scanner.obj
-c:\users\ethan\source\repos\edr-development-via-tdd\edr_test\x64\release\test_malware_scannercpp.obj
+c:\users\ethan\source\repos\edr-development-via-tdd\edr_test\x64\release\test_malware_scanner.obj
 c:\users\ethan\source\repos\edr-development-via-tdd\edr_test\x64\release\test_file_detector.obj
 c:\users\ethan\source\repos\edr-development-via-tdd\x64\release\gtest.pdb
 c:\users\ethan\source\repos\edr-development-via-tdd\x64\release\gtest_main.pdb

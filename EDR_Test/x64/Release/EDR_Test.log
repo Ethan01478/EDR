@@ -1,9 +1,75 @@
 ﻿  pch.cpp
   test_file_detector.cpp
-  test_malware_scannercpp.cpp
+  test_malware_scanner.cpp
   test_memory_scanner.cpp
   test_process_detector.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(4813,18): warning C4244: '=': 將 'const wchar_t' 轉換為 'char'，由於類型不同，可能導致資料遺失
+  (編譯來源檔案 '/test_process_detector.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(4813,18):
+      範本具現化內容 (首先是最舊的) 是
+          C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\test_process_detector.cpp(10,23):
+          請參考正在進行編譯的函式 樣板 具現化 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)'
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_const_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+              C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\test_process_detector.cpp(10,5):
+              請參閱 'WStringToString' 中 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string' 的第一個參考
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(812,17):
+          請參考正在進行編譯的函式 樣板 具現化 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct_from_iter<const wchar_t*,const wchar_t*,_Size_type>(_Iter,const _Sent,_Size)'
+          with
+          [
+              _Size_type=unsigned __int64,
+              _Iter=const wchar_t *,
+              _Sent=const wchar_t *,
+              _Size=unsigned __int64
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(968,18):
+          請參考正在進行編譯的函式 樣板 具現化 '_OutIt *std::_Copy_n_unchecked4<const wchar_t*,_Size,char*>(_InIt,_SizeTy,_OutIt)'
+          with
+          [
+              _OutIt=char *,
+              _Size=unsigned __int64,
+              _InIt=const wchar_t *,
+              _SizeTy=unsigned __int64
+          ]
+  
   test_registry_detector.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(4813,18): warning C4244: '=': 將 'const wchar_t' 轉換為 'char'，由於類型不同，可能導致資料遺失
+  (編譯來源檔案 '/test_registry_detector.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(4813,18):
+      範本具現化內容 (首先是最舊的) 是
+          C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\test_registry_detector.cpp(18,9):
+          請參考正在進行編譯的函式 樣板 具現化 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)'
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_const_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+              C:\Users\ethan\source\repos\EDR-Development-via-TDD\EDR_Test\test_registry_detector.cpp(18,9):
+              請參閱 'RegistryDetectorTest_ECP_LogicVerification_Test::TestBody' 中 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string' 的第一個參考
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(812,17):
+          請參考正在進行編譯的函式 樣板 具現化 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct_from_iter<const wchar_t*,const wchar_t*,_Size_type>(_Iter,const _Sent,_Size)'
+          with
+          [
+              _Size_type=unsigned __int64,
+              _Iter=const wchar_t *,
+              _Sent=const wchar_t *,
+              _Size=unsigned __int64
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(968,18):
+          請參考正在進行編譯的函式 樣板 具現化 '_OutIt *std::_Copy_n_unchecked4<const wchar_t*,_Size,char*>(_InIt,_SizeTy,_OutIt)'
+          with
+          [
+              _OutIt=char *,
+              _Size=unsigned __int64,
+              _InIt=const wchar_t *,
+              _SizeTy=unsigned __int64
+          ]
+  
   正在產生程式碼...
   Edr_Core.lib(FileDetector.obj) : 找到 MSIL .netmodule 或以 /GL 編譯的模組。請以 /LTCG 重新啟動連結，將 /LTCG 加入連結命令列以提升連結器效能
   正在產生程式碼
