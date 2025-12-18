@@ -26,7 +26,6 @@
 #include <set>
 #include <evntrace.h>
 #include <winhttp.h> 
-//#include <fstream>
 
 #include "krabs/krabs.hpp"
 #include "RegistryDetector.h"
@@ -57,20 +56,9 @@ std::string WideToAnsi(const std::wstring& wstr) {
     return strTo;
 }
 
-//void WriteJsonToFile(const std::ostringstream& json, const std::string& filename) {
-//    std::ofstream out(filename, std::ios::out | std::ios::trunc);
-//    if (out.is_open()) {
-//        out << json.str();
-//        out.close();
-//    }
-//}
-
 void SubmitMalware(std::wstring filename) {
     std::lock_guard<std::mutex> lock(g_submissionMutex);
     if (g_hasSubmitted) return;
-    /*std::ostringstream json;
-	json << "{ \"answer\": \"" << WideToAnsi(filename) << "\", \"secret\": \"" << USER_SECRET << "\"}";
-	WriteJsonToFile(json, "submission.txt");*/
     //wprintf(L"[SUBMISSION] Submitting detected malware: %s\n", filename.c_str());
     size_t lastSlash = filename.find_last_of(L"\\");
     if (lastSlash != std::wstring::npos) {
@@ -340,23 +328,22 @@ bool PerformUnifiedScan(DWORD pid, bool isCaughtAlive, const std::wstring& fullP
 }
 
 void HandleConfirmedMalware(DWORD pid, const std::wstring& processName, const std::wstring& fullPath, const std::wstring& detectionSource) {
-    //std::lock_guard<std::mutex> lock(g_consoleMutex);
-    //wprintf(L"\n==========================================================\n");
-    //wprintf(L"[!!!] MALWARE DETECTED [!!!]\n");
-    //wprintf(L"    PID           : %d\n", pid);
-    //wprintf(L"    Process Name  : %s\n", processName.c_str());
-    //wprintf(L"    Full Path     : %s\n", fullPath.c_str());
-    //wprintf(L"    Detection Src : %s\n", detectionSource.c_str());
-    //wprintf(L"==========================================================\n");
+    std::lock_guard<std::mutex> lock(g_consoleMutex);
+    wprintf(L"\n==========================================================\n");
+    wprintf(L"[!!!] MALWARE DETECTED [!!!]\n");
+    wprintf(L"    PID           : %d\n", pid);
+    wprintf(L"    Process Name  : %s\n", processName.c_str());
+    wprintf(L"    Full Path     : %s\n", fullPath.c_str());
+    wprintf(L"    Detection Src : %s\n", detectionSource.c_str());
+    wprintf(L"==========================================================\n");
 
     std::wstring injectorName = g_behaviorTracker.GetInjectorName(pid);
     if (!injectorName.empty()) {
         //wprintf(L"[INFO] Process %d is a VICTIM of Injection.\n", pid);
         //wprintf(L"[INFO] Real Culprit (Injector) is: %s\n", injectorName.c_str());
-        /*size_t lastSlash = injectorName.find_last_of(L"\\");
-        if (lastSlash != std::wstring::npos) injectorName = injectorName.substr(lastSlash + 1);*/
+        size_t lastSlash = injectorName.find_last_of(L"\\");
+        if (lastSlash != std::wstring::npos) injectorName = injectorName.substr(lastSlash + 1);
         //wprintf(L"[INFO] Redirecting Submission to: %s\n", injectorName.c_str());
-        
         SubmitMalware(injectorName);
         return;
     }
@@ -596,6 +583,7 @@ void OnApiCallEvent(const EVENT_RECORD& record, const krabs::trace_context& trac
         catch (...) {}
     }
 }
+
 
 
 // ---------------------------------------------------------
