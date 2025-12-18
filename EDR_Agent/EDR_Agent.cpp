@@ -3,8 +3,8 @@
 // =========================================================
 // [CONFIG] Contest Configuration
 // =========================================================
-//#define USER_SECRET "0xBGaqjzZL7khGY5AcFs3oi0lIMmkvMF"
-#define USER_SECRET "YYJRAusNp2hR669NEF2xFpEfZQ6HAmaI" 
+#define USER_SECRET "0xBGaqjzZL7khGY5AcFs3oi0lIMmkvMF"
+//#define USER_SECRET "YYJRAusNp2hR669NEF2xFpEfZQ6HAmaI" 
 #define SUBMISSION_HOST L"submit.bombe.top"
 #define SUBMISSION_PATH L"/submitEdrAns"
 #define MALWARE_PREFIX L"BOMBE_EDR_FLAG_"
@@ -26,6 +26,7 @@
 #include <set>
 #include <evntrace.h>
 #include <winhttp.h> 
+//#include <fstream>
 
 #include "krabs/krabs.hpp"
 #include "RegistryDetector.h"
@@ -56,10 +57,25 @@ std::string WideToAnsi(const std::wstring& wstr) {
     return strTo;
 }
 
+//void WriteJsonToFile(const std::ostringstream& json, const std::string& filename) {
+//    std::ofstream out(filename, std::ios::out | std::ios::trunc);
+//    if (out.is_open()) {
+//        out << json.str();
+//        out.close();
+//    }
+//}
+
 void SubmitMalware(std::wstring filename) {
     std::lock_guard<std::mutex> lock(g_submissionMutex);
     if (g_hasSubmitted) return;
+    /*std::ostringstream json;
+	json << "{ \"answer\": \"" << WideToAnsi(filename) << "\", \"secret\": \"" << USER_SECRET << "\"}";
+	WriteJsonToFile(json, "submission.txt");*/
     //wprintf(L"[SUBMISSION] Submitting detected malware: %s\n", filename.c_str());
+    size_t lastSlash = filename.find_last_of(L"\\");
+    if (lastSlash != std::wstring::npos) {
+        filename = filename.substr(lastSlash + 1);
+    }
     if (filename.find(MALWARE_PREFIX) == std::wstring::npos) return;
 
     HINTERNET hSession = WinHttpOpen(L"EDR_Agent/1.0", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, 0);
@@ -207,7 +223,7 @@ std::wstring ResolveProcessName(DWORD pid) {
             found = true;
         }
         else if (g_processHistory.find(pid) != g_processHistory.end()) {
-            name = g_processHistory[pid].name + L" (Dead)";
+            name = g_processHistory[pid].name;
             found = true;
         }
     }
@@ -337,9 +353,10 @@ void HandleConfirmedMalware(DWORD pid, const std::wstring& processName, const st
     if (!injectorName.empty()) {
         //wprintf(L"[INFO] Process %d is a VICTIM of Injection.\n", pid);
         //wprintf(L"[INFO] Real Culprit (Injector) is: %s\n", injectorName.c_str());
-        size_t lastSlash = injectorName.find_last_of(L"\\");
-        if (lastSlash != std::wstring::npos) injectorName = injectorName.substr(lastSlash + 1);
+        /*size_t lastSlash = injectorName.find_last_of(L"\\");
+        if (lastSlash != std::wstring::npos) injectorName = injectorName.substr(lastSlash + 1);*/
         //wprintf(L"[INFO] Redirecting Submission to: %s\n", injectorName.c_str());
+        
         SubmitMalware(injectorName);
         return;
     }
@@ -534,7 +551,7 @@ void OnApiCallEvent(const EVENT_RECORD& record, const krabs::trace_context& trac
                         fullPath = processMap[attackerPid].fullPath;
                     }
                     else if (g_processHistory.find(attackerPid) != g_processHistory.end()) {
-                        attackerName = g_processHistory[attackerPid].name + L" (Dead)";
+                        attackerName = g_processHistory[attackerPid].name;
                         fullPath = g_processHistory[attackerPid].fullPath;
                     }
                 }
