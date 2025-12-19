@@ -3,6 +3,7 @@
   test_malware_scanner.cpp
   test_memory_scanner.cpp
   test_process_detector.cpp
+  test_registry_detector.cpp
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(4813,18): warning C4244: '=': 將 'const wchar_t' 轉換為 'char'，由於類型不同，可能導致資料遺失
   (編譯來源檔案 '/test_process_detector.cpp')
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(4813,18):
@@ -36,7 +37,6 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.3520
               _SizeTy=unsigned __int64
           ]
   
-  test_registry_detector.cpp
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(4813,18): warning C4244: '=': 將 'const wchar_t' 轉換為 'char'，由於類型不同，可能導致資料遺失
   (編譯來源檔案 '/test_registry_detector.cpp')
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(4813,18):

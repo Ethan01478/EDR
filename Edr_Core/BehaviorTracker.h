@@ -158,7 +158,7 @@ public:
         {
             std::lock_guard<std::mutex> lock(count_mutex);
             currentScore = score.GetCount();
-		    //printf("score:%d\n", currentScore);
+		    printf("score:%d\n", currentScore);
         }
 
         if (m_detectedPids.count(pid)) return true;

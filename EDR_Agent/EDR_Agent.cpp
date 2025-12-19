@@ -59,7 +59,7 @@ std::string WideToAnsi(const std::wstring& wstr) {
 void SubmitMalware(std::wstring filename) {
     std::lock_guard<std::mutex> lock(g_submissionMutex);
     if (g_hasSubmitted) return;
-    //wprintf(L"[SUBMISSION] Submitting detected malware: %s\n", filename.c_str());
+    wprintf(L"[SUBMISSION] Submitting detected malware: %s\n", filename.c_str());
     size_t lastSlash = filename.find_last_of(L"\\");
     if (lastSlash != std::wstring::npos) {
         filename = filename.substr(lastSlash + 1);
